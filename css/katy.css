@@ -1,0 +1,134 @@
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+	/*font-weight: 300;*/
+	background: hsla(121, 22%, 99%, 1);
+}
+
+h1 {
+	font-size: 3rem;
+}
+
+/*general link styles*/
+
+a {
+	text-decoration: none;
+	color: navy;
+	font-weight: bold;
+}
+
+a:visited {
+	color: firebrick;
+}
+
+a:hover {
+	color: tomato;
+}
+
+a:active {
+	color: orangered; /*ORANGEREEEEDDDDD*/
+}
+
+/*layout*/
+
+.header, .column {
+	background: hsla(58, 68%, 88%, 0.9);
+}
+
+.container {
+	display: block;
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 15px;
+	padding-right: 15px;
+	max-width: 846px;
+}
+
+.header {
+	/*background-color: papayawhip;*/
+	height: 228px;
+	padding-left: 0;
+}
+
+
+
+.column {
+	float: left;
+	width: 44%;
+	position: relative;
+	min-height: 1px;
+	padding: 18px;
+	/*padding-right: 19px;*/
+	/*background: papayawhip;*/
+	margin: 4px;
+}
+
+
+
+.photo {
+	float: left;
+	background-image: url('../katy.jpeg');
+	height: 224px;
+	width: 224px;
+	background-size: 100%;
+	margin-right: 28px;
+	border: 2px solid black;
+
+}
+
+footer {
+	clear: both;
+}
+
+/*connect icons*/
+
+.connectIcon {
+	position: relative;
+	-webkit-transition: 2s;
+	-moz-transition: 2s;
+	-ms-transition: 2s;
+	-o-transition: 2s;
+	transition: 2s;
+}
+
+.connectIcon:hover:before {
+	position: absolute;
+	top: 10px;
+	content: attr(data-username);
+}
+
+
+
+
+/* temp classes */
+
+
+body {
+	background: rgb(65,195, 220);
+}
+
+.coming-soon {
+	margin-left: 33%;
+	/*margin-right: 38%;*/
+	margin-top: 4%;
+	color: white;
+	font-size: 4em;
+	text-shadow: 3px 2px 1px grey;
+
+}
+
+.katy-picture {
+	background-image: url("../img/Katy_4.png");
+	margin-left: 36%;
+	/*margin-right: 45%;*/
+	background-size: 90%;
+	width: 265px;
+	height: 251px;
+}
+
+footer {
+	clear: both;
+	color: white;
+	position: absolute;
+	bottom: 0;
+}
