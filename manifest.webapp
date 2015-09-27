@@ -1,8 +1,12 @@
 {
-  "version": "0.0.1",
+  "version": "0.0.2",
   "name": "katy.moe app",
   "description": "FirefoxOS app test for katy.moe",
-  "launch_path": "index.html",
+  "launch_path": "/index.html",
+  "icons": {
+    "512": "/images/firefoxos_katy_512.png",
+    "128": "/images/firefoxos_katy_128.png"
+  },
   "developer": {
     "name": "Katy Moe",
     "url": "http://katy.moe"
