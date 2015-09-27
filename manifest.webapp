@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "name": "katy.moe app",
+  "description": "FirefoxOS app test for katy.moe",
+  "launch_path": "index.html",
+  "developer": {
+    "name": "Katy Moe",
+    "url": "http://katy.moe"
+  },
+  "default_locale": "en"
+}
