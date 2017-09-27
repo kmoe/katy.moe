@@ -8,6 +8,14 @@ h1 {
 	font-size: 3rem;
 }
 
+hr {
+    border-style: dashed;
+    border-color: hsla(0,0%,72%,1);
+    width: 80%;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
 /*general link styles*/
 
 a {
@@ -32,15 +40,27 @@ a:active {
 
 /*connect icons*/
 
+.connectIcons {
+    display: flex;
+    justify-content: space-around;
+
+}
+
 .connectIcon {
 	position: relative;
 	-webkit-transition: .2s;
 	-moz-transition: .2s;
 	-ms-transition: .2s;
 	-o-transition: .2s;
-	transition: .2s;
-}
+  transition: .2s;
+	}
 
+.introduction {
+	  margin-left: 20%;
+	  margin-right: 19%;
+	  text-align: left;
+	  margin-top: 1%;
+}
 
 
 
@@ -57,18 +77,12 @@ a:active {
 }
 
 @media all and (max-width: 600px){
-	.hero-type{
-		margin-left: 20%;
+	.hero-type, .introduction {
+		margin-left: 10%;
+    margin-right: 10%;
 	}
 	.no-phone {
 		display: none;
 	}
 }
 
-.introduction {
-	margin-left: 20%;
-	margin-right: 19%;
-	text-align: left;
-	margin-top: 1%;
-
-}
