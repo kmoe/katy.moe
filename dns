@@ -1,0 +1,23 @@
+* 10800 IN A 51.15.42.213
+*.imap 10800 IN A 192.30.252.153
+*.imap 10800 IN A 192.30.252.154
+*.pop 10800 IN A 192.30.252.153
+*.pop 10800 IN A 192.30.252.154
+*.smtp 10800 IN A 192.30.252.153
+*.smtp 10800 IN A 192.30.252.154
+*.webmail 10800 IN A 192.30.252.153
+*.webmail 10800 IN A 192.30.252.154
+*.www 10800 IN A 51.15.42.213
+@ 3600 IN A 192.30.252.153
+@ 3600 IN A 192.30.252.154
+@ 10800 IN MX 10 spool.mail.gandi.net.
+@ 10800 IN MX 50 fb.mail.gandi.net.
+@ 10800 IN SOA ns1.gandi.net. hostmaster.gandi.net. 1517704002 10800 3600 604800 10800
+@ 10800 IN TXT "keybase-site-verification=4ABnQefQ5Pe0hkqCXLcH3LTp3xtMrFFrHGhv0ZqfLZQ"
+@ 10800 IN TXT "v=spf1 include:_mailcust.gandi.net ?all"
+blog 10800 IN CNAME blogs.vip.gandi.net.
+imap 10800 IN CNAME access.mail.gandi.net.
+pop 10800 IN CNAME access.mail.gandi.net.
+smtp 10800 IN CNAME relay.mail.gandi.net.
+webmail 10800 IN CNAME webmail.gandi.net.
+www 10800 IN CNAME webredir.vip.gandi.net.

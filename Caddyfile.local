@@ -1,0 +1,13 @@
+:3141 {
+  root www
+  gzip
+  log access.log
+  ext .html
+
+  tls self_signed
+
+  redir 301 {
+	  if {>X-Forwarded-Proto} is http
+	  /  https://{host}{uri}
+  }
+}

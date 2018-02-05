@@ -1,0 +1,11 @@
+katy.moe {
+  root www
+  gzip
+  log access.log
+  ext .html
+
+  redir 301 {
+	  if {>X-Forwarded-Proto} is http
+	  /  https://{host}{uri}
+  }
+}
