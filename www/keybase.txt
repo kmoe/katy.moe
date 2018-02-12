@@ -1,0 +1,81 @@
+==================================================================
+https://keybase.io/katy
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://katy.moe
+  * I am katy (https://keybase.io/katy) on keybase.
+  * I have a public key with fingerprint 40F0 ECDC C07E 25D5 A880  7877 A122 3E8E B495 2312
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01016d98c4f5a04a9577cca42f5ce2abf1ed5643f70d16c6f27056fbb68270a1126b0a",
+      "fingerprint": "40f0ecdcc07e25d5a8807877a1223e8eb4952312",
+      "host": "keybase.io",
+      "key_id": "a1223e8eb4952312",
+      "kid": "01016d98c4f5a04a9577cca42f5ce2abf1ed5643f70d16c6f27056fbb68270a1126b0a",
+      "uid": "8ec3e9cb1905e34ae7c4130787e24900",
+      "username": "katy"
+    },
+    "merkle_root": {
+      "ctime": 1518453926,
+      "hash_meta": "c1c40e088021b0e35e9561f93878d396903babdb469f00614ef852bd0295170f",
+      "seqno": 2071136
+    },
+    "revoke": {
+      "sig_ids": [
+        "b99e6620057d9276e599df39436243f1edea53cca36ea101ab2bb05d8d2b50620f"
+      ]
+    },
+    "service": {
+      "hostname": "katy.moe",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1518453941,
+  "expire_in": 157680000,
+  "prev": "2c590af7ed22b4fe6df46f8d8a81538b69455b2b880989705c4cc1617ccdbd15",
+  "seqno": 62,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.76
+Comment: https://keybase.io/crypto
+
+yMK5AnicrZNdaB1FFMdvrLZNiqAiolJEt0gKTePM7Mzszo0ktLVopIhCW6QfXufj
+bLK9ubs3u5s0IYkYFKuiD5o+aaleIqXQWir9oA+iNUZblRaltUU0lkICoqRFYmpp
+ijobFEV8dF9mZ+ac//mf38yM37yg0FB3otZzds096aK6L8ainsKm4fEjA46KTb9T
+HHDKMD9Al4E0K5VD4xQdhBHmRviaBkwiKgXzPK0lJQHTQKQKMBjGqRt4yGCueUA8
+xHigFPftn8SYcIWk0+QEYdQBSTUJo8zKUhQg0EZr5AFhhknfR57veRIT4oIPigpG
+XExsYmec5hnWnJIpNIexXbOT0ry9/4j/n333zMv5oF0QWmGBGLhUgqcpdnPLQKhA
+KA9MIYlkBXKvMut3hpqcCiTlLiglcZzlYHUW5tuYYZ8yVxBum5NpZ6kCmbRZGmuK
+AFkSBCsELgPBOA6E63u+cQUXyFVSGUW5CBDimELgM6IMIoJhDwXWQwrdUewUCfIw
+drl1kEBvXIa8eBp2WGSpU9zsKCGAc4IQ84wgHgcmhAlcQV1OLBFLBiRzLS2Xg7Qc
+pSJKIWZ8QxRDNjFwtg7lxZLeUM+L52f0j96bKzFYN9UkzmIdd9nVziyrpsWcSdZf
+zcO2gyr9KVBSYWTs7bAZvZCkYRxZRjbyX7gobnKgrxomUArzCOZxH9kvrwO9VpJo
+JpAMPDCEKBoANwHlgW986WPm+ooLyphtxQIWvrDHranWmGN7L4wymP3NjxPrU3ZY
+TUstkllPAs7Q2PEtNxbqGgoLb7ohfzaFhvpb/npM7zyx6LeWycn7dkzvf/KNtasO
+Xd399HC6s/PCD4cffe/03hcGP//q1pYvx4QeXnLu0uFKy8rWbbe56cBc/dufHUjG
+Wj94a827Xz9yZdXsx21b1j2wevC10cr+/n2tc/t+fq5v9Pxd9Or4j128/cyhpjvl
+d80rF4TvT8ZvRmeu72qcOr3n/C9HyytO1S493/iKPvhU+6bG9Y/rsxOfjqwLX176
+oLPknPfNimsjvRee6fspPRB9f3fL4M4PV9cfOdW+bOG3r49eixevrXWfnH3o4Yk9
+tetTG+/vnn22bWZq5vLvVx779ZPbt04em7u4zKvb0FC7ePnFO45Pn5yOh5dOjMy8
+umv7xh3H2L0vtS1ev3f5thMHvY92L/8D3FiGlA==
+=YyVx
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/katy
+
+==================================================================
