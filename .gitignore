@@ -1,3 +1,5 @@
 .DS_Store
 .idea*
 access.log
+nohup.out
+

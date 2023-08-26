@@ -1,49 +1,110 @@
 <!DOCTYPE html>
-<html lang='en'> <!-- Meticulously hand-coded since 2001 -->
-  <head>
-    <meta charset='utf-8'>
-    <meta name='description' content='Personal website of Katy Moe, London software engineer.'>
-    <meta name='author' content='Katy Moe'>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+<!-- Meticulously hand-coded since 2001. -->
+<!-- Re-handcoded in 2023 with HTML4.01 invalid (the koala book). -->
+<head>
+<title>Katy Moe's website</title>
+</head>
 
-    <link href='css/katy.css' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' href='css/font-awesome.css' type='text/css'>
+<body>
+<h1>Katy Moe</h1>
 
-    <title>Katy Moe</title>
-  </head>
+This is a new website, starting afresh after <a href="https://katy.moe">katy.moe</a> ended its 7-year uptime for essential maintenance!
 
-  <body>
-    <div class='hero-type'>Katy Moe</div>
+<hr>
+If you got here from git, you may be interested in <b>Terraform</b>.
 
-    <div class='introduction'>
+Here are some more interesting links on Terraform topics:
+<ul>
+  <li><a href="https://log.martinatkins.me/">Development Log by Martin Atkins</a></li>
+  <li><a href="https://paddy.carvers.co/talks/hashiconf-digital-2020/">The History of Terraform Providers</a>, talk with Paddy Carver (2020)</li>
+  <li><a href="https://github.com/hashicorp/terraform">Terraform on GitHub</a></li>
+</ul>
+<hr>
+<h2>Music</h2>
+<p>Loops made using OP-1</p>
 
-      <p>Software Engineer at <a href="http://hashicorp.com/">HashiCorp</a>, working on <a href="https://terraform.io">Terraform</a>.</p>
-      <p>I work with the web, distributed systems, connected hardware, and infrastructure automation. I write a lot of Go.</p>
-      <h4>Talks</h4>
-      <p><a href='https://air.mozilla.org/learning-javascript-algorithms-cryptography/'>Learning JavaScript algorithms: RSA</a> - Mozilla (2016).</p>
-      <p>APIs for Cyborgs - <a href='https://www.youtube.com/watch?v=J17k2k6sPUU'>enterJS </a>, <a href='https://www.youtube.com/watch?v=EmeB8FPsDdw'>Electromagnetic Field</a>, <a href'https://www.youtube.com/watch?v=3oac_8wZEYo'>Signal San Francisco</a> (2016).</p>
-      <p><a href='https://paddy.carvers.co/talks/hashiconf-digital-2020/'>The History of Terraform Providers</a>, with Paddy Carver - HashiConf Digital (2020).</p>
-      <p><a href='https://www.twitch.tv/videos/809829973'>The Whats and Whys of Provider Development</a>, with Paddy Carver - HashiCorp Live (2020).</p>
-      <h4>Articles</h4><p><a href='https://www.dailydot.com/debug/cyborg-katy-moe-programmer-body-hacking/'>What a self-made cyborg taught me about body hacking</a>, profile by Selena Larson - Daily Dot (2016).</p>
-       <p><a href='https://www.hashicorp.com/blog/announcing-the-terraform-plugin-sdk'>Announcing the Terraform Plugin SDK</a> - HashiCorp blog (2019).</p>
+<p>Under construction.</p>
+<button id="side_b" type="button">play side_b.flac</button>
+<button id="clip1" type="button">play clip1.flac</button>
+<script type="text/javascript">
+for (let trackname of ["side_b", "clip1"]) {
+  var audioData, srcNode;
+  document.getElementById(trackname).onclick = function() {
+  var actx = new (AudioContext || webkitAudioContext)(),
+    src = "./"+trackname+".flac";
+    // Load some audio (CORS need to be allowed or we won't be able to decode the data)
+    fetch(src, {mode: "cors"}).then(function(resp) {return resp.arrayBuffer()}).then(decode);
 
-      <hr>
+    // Decode the audio file, then start the show
+    function decode(buffer) {
+      actx.decodeAudioData(buffer, playLoop);
+    }
 
-      <p><i>"It helps to be illiterate, so that you are not confused by the shape of the ink."</i> - E. Yudkowsky</p>
+    // Sets up a new source node as needed as stopping will render current invalid
+    function playLoop(abuffer) {
+      if (!audioData) audioData = abuffer;  // create a reference for control buttons
+      srcNode = actx.createBufferSource();  // create audio source
+      srcNode.buffer = abuffer;             // use decoded buffer
+      srcNode.connect(actx.destination);    // create output
+      srcNode.loop = true;                  // takes care of perfect looping
+      srcNode.start();                      // play...
+    }
 
-      <hr>
+    if (srcNode) {
+      srcNode.stop();
+      srcNode = null;
+      this.innerText = "play "+trackname+".flac";
+    } else {
+      actx.resume().then(() => {
+        playLoop(audioData);
+        this.innerText = "pause "+trackname+".flac";
+      });
+    }
+  };   
+}
+</script>
 
-      <p class='connectIcons'>
-        <a class='connectIcon' href='https://delicate.computer' aria-label='writing' title='writing'><span class='fa fa-book fa-lg'></span></a>
-        <a class='connectIcon' href='https://github.com/kmoe' aria-label="GitHub" title='GitHub'><span class="fa fa-github fa-lg"></span></a>
-        <a class='connectIcon' href='https://uk.linkedin.com/in/katymoe/' aria-label="LinkedIn" title="LinkedIn"><span class="fa fa-linkedin fa-lg"></span></a>
-        <a class='connectIcon no-phone' href='https://steamcommunity.com/id/katymoe/' aria-label="Steam" title="Steam"><span class="fa fa-steam fa-lg"></span></a>
-        <a class='connectIcon' href='https://stackoverflow.com/users/2830958/kmoe' aria-label="Stack Overflow" title='Stack Overflow'><span class="fa fa-stack-overflow fa-lg"></span></a>
-        <a class='connectIcon' href='https://keybase.io/katy' aria-label="Keybase" title="Keybase"><span class="fa fa-key fa-lg"></span></a>
-     </p>
+<hr>
+<h2>Cybernetics</h2>
+<ul>
+ <li>13.56MHz NTAG216 NFC Type 2 chip <b>implanted in left hand</b></li>
+ <li>13.56MHz tuning coil "xLED" <b>ready to site</b></li>
+ <li>134KHz Bio-Thermo LifeChip <b>not sited</b>
+   <ul>
+     <li>Looking for an alternative without BioBond or proprietary protocol</li>
+       </ul>
+ </li>
 
-    </div>
-  </body>
+</ul>
+The active device project is paused at the moment because I can't come up with any sensible way of powering BLE inside the body.
+
+<hr>
+<h2>Links and friends</h2>
+<ul>
+  <li><a href="https://ontologforum.com/index.php/WikiHomePage">Ontolog forum</a></li>
+  <li><a href="https://charliedraper.com/">Charlie Draper</a></li>
+  <li><a href="https://www.joelotter.com/">Joel Auterson</a></li>
+  <li><a href="https://lafentres.dev/">Krista LaFentres</a></li>
+  <li><a href="https://thewebivore.com/">Pam the Webivore</a></li>
+  <li><a href="https://delicate.computer">delicate.computer</a></li>
+  <li><a href="https://gregegan.net">Greg Egan's Home Page</a></li>
+  <li>My favourite IETF RFCs
+<ul>
+  <li><a href="https://datatracker.ietf.org/doc/html/rfc970">RFC 970</a> - On Packet Switches With Infinite Storage</li>
+  <li><a href="https://datatracker.ietf.org/doc/html/rfc1178">RFC 1178</a> - Choosing a name for your computer</li>
+  <li><a href="https://datatracker.ietf.org/doc/html/rfc2119">RFC 2219</a> - Key words for use in RFCs to Indicate Requirement Levels</li>
+</ul>
+  </li>
+</ul>
+
+</ul>
+
+<hr>
+<h2>Email</h2>
+Yes.
+
+</body>
 </html>
+
+
