@@ -33,6 +33,7 @@ Here are some more interesting links on Terraform topics:
   var nowPlaying = new Map();
   for (let trackname of tracks) {
     nowPlaying.set(trackname, false);
+    initSound(trackname);
   }
 
   function initSound(trackname) {
@@ -41,11 +42,16 @@ Here are some more interesting links on Terraform topics:
     .then(arrayBuffer => audioCtx.decodeAudioData(arrayBuffer))
     .then(audioBuffer => {
         document.getElementById(trackname).onclick = function() {
-          playSound(audioBuffer)  
+          if (nowPlaying.get(trackname)) {
+            playSound(audioBuffer)  
             nowPlaying.set(trackname, true)
             this.innerText = "pause "+trackname+".flac"
-        } 
-      playbackButton.disabled = false
+          } else {
+            pauseSound(audioBuffer) 
+            nowPlaying.set(trackname, false)
+            this.innerText = "play "+trackname+".flac"
+          }
+      } 
     })
   }
 
@@ -56,44 +62,10 @@ Here are some more interesting links on Terraform topics:
     bufferSource.loop = true;
     bufferSource.start(0);
   }
-  
-  for (let trackname of tracks) {
-    initSound(trackname);
+
+  function pauseSound(audioBuffer) {
+      
   }
-  
-<!-- for (let trackname of ["side_b", "clip1"]) { -->
-<!--   var audioData, srcNode; -->
-<!--   document.getElementById(trackname).onclick = function() { -->
-<!--     var actx = new (AudioContext || webkitAudioContext)(); -->
-<!--     var src = "./op1/"+trackname+".flac"; -->
-
-<!--     fetch(src, {mode: "cors"}).then(function(resp) {return resp.arrayBuffer()}).then(decode); -->
-
-<!--     function decode(buffer) { -->
-<!--       actx.decodeAudioData(buffer, playLoop); -->
-<!--     } -->
-
-<!--     function playLoop(abuffer) { -->
-<!--       if (!audioData) audioData = abuffer; -->
-<!--       srcNode = actx.createBufferSource(); -->
-<!--       srcNode.buffer = abuffer; -->
-<!--       srcNode.connect(actx.destination); -->
-<!--       srcNode.loop = true; -->
-<!--       srcNode.start(); -->
-<!--     } -->
-
-<!--     if (srcNode) { -->
-<!--       srcNode.stop(); -->
-<!--       srcNode = null; -->
-<!--       this.innerText = "play "+trackname+".flac"; -->
-<!--     } else { -->
-<!--       actx.resume().then(() => { -->
-<!--         playLoop(audioData); -->
-<!--         this.innerText = "pause "+trackname+".flac"; -->
-<!--       }); -->
-<!--     } -->
-<!--   }; -->
-<!-- } -->
 </script>
 
 <hr>
