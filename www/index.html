@@ -22,15 +22,17 @@ Here are some more interesting links on Terraform topics:
 </ul>
 <hr>
 <h2>Music</h2>
-<p>Loops made using OP-1</p>
+<p>Loops made using the OP-1 synthesiser.</p>
 
-<p>Under construction.</p>
 <button id="aiw" type="button">play aiw.flac</button>
 <button id="side_b" type="button">play side_b.flac</button>
 <button id="clip1" type="button">play clip1.flac</button>
+<button id="1234" type="button">play 1234.flac</button>
+<button id="deck" type="button">play deck.flac</button>
+<button id="gpg" type="button">play gpg.flac</button>
 <script type="text/javascript">
   const audioCtx =  new (window.AudioContext || window.webkitAudioContext)({ latencyHint: 'playback' })
-  const tracks = ["side_b", "clip1", "aiw"];
+  const tracks = ["side_b", "clip1", "aiw", "1234", "deck", "gpg"];
   var nowPlaying = new Map();
   for (let trackname of tracks) {
     nowPlaying.set(trackname, false);
