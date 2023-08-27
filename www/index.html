@@ -24,15 +24,23 @@ Here are some more interesting links on Terraform topics:
 <h2>Music</h2>
 <p>Loops made using the OP-1 synthesiser.</p>
 
-<button id="aiw" type="button">play aiw.flac</button>
-<button id="side_b" type="button">play side_b.flac</button>
-<button id="clip1" type="button">play clip1.flac</button>
-<button id="1234" type="button">play 1234.flac</button>
-<button id="deck" type="button">play deck.flac</button>
-<button id="gpg" type="button">play gpg.flac</button>
+Loops:
+<ul>
+<li><button id="aiw" type="button">play aiw.flac</button></li>
+<li><button id="clip1" type="button">play clip1.flac</button></li>
+<li><button id="1234" type="button">play 1234.flac</button></li>
+<li><button id="deck" type="button">play deck.flac</button></li>
+<li><button id="gpg" type="button">play gpg.flac</button></li>
+</ul>
+
+~6min tracks:
+<ul>
+<li><button id="deck_a" type="button">play deck_a.flac</button></li>
+<li><button id="side_b" type="button">play side_b.flac</button></li>
+</ul>
 <script type="text/javascript">
   const audioCtx =  new (window.AudioContext || window.webkitAudioContext)({ latencyHint: 'playback' })
-  const tracks = ["side_b", "clip1", "aiw", "1234", "deck", "gpg"];
+  const tracks = ["side_b", "clip1", "aiw", "1234", "deck", "gpg", "deck_a"];
   var nowPlaying = new Map();
   for (let trackname of tracks) {
     nowPlaying.set(trackname, false);
