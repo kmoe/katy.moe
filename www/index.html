@@ -41,13 +41,17 @@ Here are some more interesting links on Terraform topics:
     .then(resp => resp.arrayBuffer())
     .then(arrayBuffer => audioCtx.decodeAudioData(arrayBuffer))
     .then(audioBuffer => {
+    const bufferSource = audioCtx.createBufferSource()
+    bufferSource.buffer = audioBuffer;
+    bufferSource.connect(audioCtx.destination);
+    bufferSource.loop = true;
         document.getElementById(trackname).onclick = function() {
           if (nowPlaying.get(trackname)) {
-            pauseSound(audioBuffer)
+            pauseSound(bufferSource)
             nowPlaying.set(trackname, false)
             this.innerText = "play "+trackname+".flac"
           } else {
-            playSound(audioBuffer)
+            playSound(bufferSource)
             nowPlaying.set(trackname, true)
             this.innerText = "pause "+trackname+".flac"
           }
@@ -55,16 +59,13 @@ Here are some more interesting links on Terraform topics:
     })
   }
 
-  function playSound(audioBuffer) {
-    const bufferSource = audioCtx.createBufferSource()
-    bufferSource.buffer = audioBuffer;
-    bufferSource.connect(audioCtx.destination);
-    bufferSource.loop = true;
+  function playSound(bufferSource) {
+
     bufferSource.start(0);
   }
 
-  function pauseSound(audioBuffer) {
-      
+  function pauseSound(bufferSource) {
+     bufferSource.stop();
   }
 </script>
 
