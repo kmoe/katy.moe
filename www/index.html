@@ -25,11 +25,12 @@ Here are some more interesting links on Terraform topics:
 <p>Loops made using OP-1</p>
 
 <p>Under construction.</p>
+<button id="aiw" type="button">play aiw.flac</button>
 <button id="side_b" type="button">play side_b.flac</button>
 <button id="clip1" type="button">play clip1.flac</button>
 <script type="text/javascript">
   const audioCtx =  new (window.AudioContext || window.webkitAudioContext)({ latencyHint: 'playback' })
-  const tracks = ["side_b", "clip1"];
+  const tracks = ["side_b", "clip1", "aiw"];
   var nowPlaying = new Map();
   for (let trackname of tracks) {
     nowPlaying.set(trackname, false);
