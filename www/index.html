@@ -28,41 +28,72 @@ Here are some more interesting links on Terraform topics:
 <button id="side_b" type="button">play side_b.flac</button>
 <button id="clip1" type="button">play clip1.flac</button>
 <script type="text/javascript">
-for (let trackname of ["side_b", "clip1"]) {
-  var audioData, srcNode;
-  document.getElementById(trackname).onclick = function() {
-  var actx = new (AudioContext || webkitAudioContext)(),
-    src = "./"+trackname+".flac";
-    // Load some audio (CORS need to be allowed or we won't be able to decode the data)
-    fetch(src, {mode: "cors"}).then(function(resp) {return resp.arrayBuffer()}).then(decode);
+  const audioCtx =  new (window.AudioContext || window.webkitAudioContext)({ latencyHint: 'playback' })
+  const tracks = ["side_b", "clip1"];
+  var nowPlaying = new Map();
+  for (let trackname of tracks) {
+    nowPlaying.set(trackname, false);
+  }
 
-    // Decode the audio file, then start the show
-    function decode(buffer) {
-      actx.decodeAudioData(buffer, playLoop);
-    }
+  function initSound(trackname) {
+    fetch("./op1/"+trackname+".flac")
+    .then(resp => resp.arrayBuffer())
+    .then(arrayBuffer => audioCtx.decodeAudioData(arrayBuffer))
+    .then(audioBuffer => {
+        document.getElementById(trackname).onclick = function() {
+          playSound(audioBuffer)  
+            nowPlaying.set(trackname, true)
+            this.innerText = "pause "+trackname+".flac"
+        } 
+      playbackButton.disabled = false
+    })
+  }
 
-    // Sets up a new source node as needed as stopping will render current invalid
-    function playLoop(abuffer) {
-      if (!audioData) audioData = abuffer;  // create a reference for control buttons
-      srcNode = actx.createBufferSource();  // create audio source
-      srcNode.buffer = abuffer;             // use decoded buffer
-      srcNode.connect(actx.destination);    // create output
-      srcNode.loop = true;                  // takes care of perfect looping
-      srcNode.start();                      // play...
-    }
+  function playSound(audioBuffer) {
+    const bufferSource = audioCtx.createBufferSource()
+    bufferSource.buffer = audioBuffer;
+    bufferSource.connect(audioCtx.destination);
+    bufferSource.loop = true;
+    bufferSource.start(0);
+  }
+  
+  for (let trackname of tracks) {
+    initSound(trackname);
+  }
+  
+<!-- for (let trackname of ["side_b", "clip1"]) { -->
+<!--   var audioData, srcNode; -->
+<!--   document.getElementById(trackname).onclick = function() { -->
+<!--     var actx = new (AudioContext || webkitAudioContext)(); -->
+<!--     var src = "./op1/"+trackname+".flac"; -->
 
-    if (srcNode) {
-      srcNode.stop();
-      srcNode = null;
-      this.innerText = "play "+trackname+".flac";
-    } else {
-      actx.resume().then(() => {
-        playLoop(audioData);
-        this.innerText = "pause "+trackname+".flac";
-      });
-    }
-  };   
-}
+<!--     fetch(src, {mode: "cors"}).then(function(resp) {return resp.arrayBuffer()}).then(decode); -->
+
+<!--     function decode(buffer) { -->
+<!--       actx.decodeAudioData(buffer, playLoop); -->
+<!--     } -->
+
+<!--     function playLoop(abuffer) { -->
+<!--       if (!audioData) audioData = abuffer; -->
+<!--       srcNode = actx.createBufferSource(); -->
+<!--       srcNode.buffer = abuffer; -->
+<!--       srcNode.connect(actx.destination); -->
+<!--       srcNode.loop = true; -->
+<!--       srcNode.start(); -->
+<!--     } -->
+
+<!--     if (srcNode) { -->
+<!--       srcNode.stop(); -->
+<!--       srcNode = null; -->
+<!--       this.innerText = "play "+trackname+".flac"; -->
+<!--     } else { -->
+<!--       actx.resume().then(() => { -->
+<!--         playLoop(audioData); -->
+<!--         this.innerText = "pause "+trackname+".flac"; -->
+<!--       }); -->
+<!--     } -->
+<!--   }; -->
+<!-- } -->
 </script>
 
 <hr>
@@ -106,5 +137,3 @@ Yes.
 
 </body>
 </html>
-
-
