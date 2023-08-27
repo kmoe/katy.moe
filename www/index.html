@@ -43,15 +43,15 @@ Here are some more interesting links on Terraform topics:
     .then(audioBuffer => {
         document.getElementById(trackname).onclick = function() {
           if (nowPlaying.get(trackname)) {
-            playSound(audioBuffer)  
-            nowPlaying.set(trackname, true)
-            this.innerText = "pause "+trackname+".flac"
-          } else {
-            pauseSound(audioBuffer) 
+            pauseSound(audioBuffer)
             nowPlaying.set(trackname, false)
             this.innerText = "play "+trackname+".flac"
+          } else {
+            playSound(audioBuffer)
+            nowPlaying.set(trackname, true)
+            this.innerText = "pause "+trackname+".flac"
           }
-      } 
+        }
     })
   }
 
