@@ -48,7 +48,7 @@ Here are some more interesting links on Terraform topics:
             nowPlaying.set(trackname, false)
             this.innerText = "play "+trackname+".flac"
           } else {
-            playSound(bufferSource)
+            playSound(bufferSource, audioBuffer)
             nowPlaying.set(trackname, true)
             this.innerText = "pause "+trackname+".flac"
           }
@@ -56,7 +56,7 @@ Here are some more interesting links on Terraform topics:
     })
   }
 
-  function playSound(bufferSource) {
+  function playSound(bufferSource, audioBuffer) {
     bufferSource = audioCtx.createBufferSource()
     bufferSource.buffer = audioBuffer;
     bufferSource.connect(audioCtx.destination);
